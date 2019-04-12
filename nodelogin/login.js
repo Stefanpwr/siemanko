@@ -22,10 +22,10 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
-app.use(express.static('D:/pwr/6 semestr/ZTW/ztw_bend-node/public'));//dodac moja sciezke
+app.use(express.static('C:/Users/root/PhpstormProjects/web_main/public'));//dodac moja sciezke
 
 app.get('/', function(request, response) {
-    response.sendFile('/index.html', { root : 'D:/pwr/6 semestr/ZTW/ztw_bend-node/public'});
+    response.sendFile('/index.html', { root : 'C:/Users/root/PhpstormProjects/web_main/public'});
 });
 
 app.post('/auth', function(request, response) {
@@ -59,47 +59,153 @@ app.get('/home', function(request, response) {
 
 app.get('/signup',function(req,res)
 {
-    res.sendFile('/signup.html', { root : 'D:/pwr/6 semestr/ZTW/ztw_bend-node/public'});//path
+    res.sendFile('/signup.html', { root : 'C:/Users/root/PhpstormProjects/web_main/public'});//path
 });
 
 app.get('/account',function(req,res)
 {
-    res.sendFile('/account.html', { root : 'D:/pwr/6 semestr/ZTW/ztw_bend-node/public'});
+    res.sendFile('/account.html', { root : 'C:/Users/root/PhpstormProjects/web_main/public'});
 });
 
-app.get('getplans', function (req, res)
+app.get('/showplans', function (req,res)
 {
-    var login = session().username;
-    var id;
-    var id_planu;
-    var sql1 = "SELECT Id FROM klient WHERE email = ?";
-    connection.query(sql1, [login], function (error, result, fields)
-    {
-        if (error) throw error;
-        id = result[0].valueOf();
-        //id = result[0]
-    });
-    //id = connection.query(sql1, [login]);
+    res.sendFile('/showplans.html', { root : 'C:/Users/root/PhpstormProjects/web_main/public'});
 
-    var sql2 = "SELECT IdPlanu FROM plantreningowy WHERE IdKlienta = ?";
-    connection.query(sql2, [id], function (error, result, fields)
-        {
-            if (error) throw error;
-            id_planu = result[0].valueOf();
-            //id_planu = result[0]
-        });
+});
 
-    var sql3 = "SELECT ptls.IdCwiczenia, ptls.Liczba_serii, ptls.Ciezar FROM plantreningowy_listacwiczen ptls WHERE IdPlanu = ?";
-    connection.query(sql3, [id_planu], function (error, result, fields)
+app.get('/createPlan', function (req, res)
+{
+    res.sendFile('/CreatePlan.html', {root: 'C:/Users/root/PhpstormProjects/web_main/public'});
+});
+
+// app.get('getplans', function (req, res)
+// {
+//
+//     var login = session().username;
+//     var id;
+//     var id_planu;
+//     var sql1 = "SELECT Id FROM klient WHERE email = ?";
+//     connection.query(sql1, [login], function (error, result, fields)
+//     {
+//         if (error) throw error;
+//         id = result[0].valueOf();
+//         //id = result[0]
+//     });
+//     //id = connection.query(sql1, [login]);
+//
+//     var sql2 = "SELECT IdPlanu FROM plantreningowy WHERE IdKlienta = ?";
+//     connection.query(sql2, [id], function (error, result, fields)
+//         {
+//             if (error) throw error;
+//             id_planu = result[0].valueOf();
+//             //id_planu = result[0]
+//         });
+//
+//     var sql3 = "SELECT ptls.IdCwiczenia, ptls.Liczba_serii, ptls.Ciezar FROM plantreningowy_listacwiczen ptls WHERE IdPlanu = ?";
+//     connection.query(sql3, [id_planu], function (error, result, fields)
+//     {
+//         for(i in result())
+//         {
+//             console.log(result[i]);
+//         }
+//     });
+// });
+
+
+
+app.get('/getplans', function (req, res)
+{
+    // var login = session().username;
+    // var id;
+    // var id_planu;
+    // var sql1 = "SELECT Id FROM klient WHERE email = ?";
+    // connection.query(sql1, [login], function (error, result, fields)
+    // {
+    //     if (error) throw error;
+    //     else
+    //         {
+    //             id = result[0].valueOf();
+    //             //id = result[0]
+    //         }
+    // });
+    // //id = connection.query(sql1, [login]);
+    //
+    // var sql2 = "SELECT IdPlanu FROM plantreningowy WHERE IdKlienta = ?";
+    // connection.query(sql2, [id], function (error, result, fields)
+    //     {
+    //         if (error) throw error;
+    //         else {
+    //             id_planu = result[0].valueOf();
+    //             //id_planu = result[0]
+    //         }
+    //     });
+    //
+    // var sql3 = "SELECT ptls.IdCwiczenia, ptls.Liczba_serii, ptls.Ciezar FROM plantreningowy_listacwiczen ptls WHERE IdPlanu = ?";
+    // connection.query(sql3, [id_planu], function (error, result, fields)
+    // {
+    //     for(i in result())
+    //     {
+    //         console.log(result[i]);
+    //     }
+    // });
+    var sql5 =  "SELECT ptlc.IdPlanu, ptlc.IdCwiczenia, lc.opis, lc.Grupa_miesniowa, ptlc.Ciezar, ptlc.Liczba_serii FROM plantreningowy_listacwiczen ptlc JOIN listacwiczen lc ON lc.IdCwiczenia = ptlc.IdCwiczenia ";
+    connection.query(sql5, function (error, result, fields)
     {
-        for(i in result())
+        if(!error)
         {
-            console.log(result[i]);
+            //res.sendFile(_dirname + "/que.html");
+            //console.log(result);
+            //res.render('/showplans',{page_title:"Test Table",data:result});
+            // res.send(result);
+            // for(i in result())
+            // {
+            //     console.log(result[i]);
+            // }
+            // res.end();
         }
     });
-})
+});
 
+app.post('/postplans', function (request, response)
+{
+    var sql5 =  "SELECT ptlc.IdPlanu, ptlc.IdCwiczenia, lc.opis, lc.Grupa_miesniowa, ptlc.Ciezar, ptlc.Liczba_serii FROM plantreningowy_listacwiczen ptlc JOIN listacwiczen lc ON lc.IdCwiczenia = ptlc.IdCwiczenia ";
+    connection.query(sql5, function (error, result, fields)
+    {
+        if(!error)
+        {
+            //res.sendFile(_dirname + "/que.html");
+            console.log(result);
+            //res.render('/showplans',{page_title:"Test Table",data:result});
+            //response.fetch
+             response.send(result);
+            //document.write(result);
+            // for(i in result())
+            // {
+                // console.log(result[i]);
+               // response.send(" " + result[i])
+            // }
+            // res.end();
+        }
+    });
+});
 
+app.post('/addEx', function (request, response)
+{
+   var cwiczenie_id = request.body.cwiczenie_id;
+   var liczba_serii = request.body.liczba_serii;
+   var ciezar = request.body.ciezar;
+
+   sql = "INSERT INTO plantreningowy_listacwiczen (IdPlanu, IdCwiczenia, Liczba_serii, Ciezar) VALUES ('1','"+cwiczenie_id+"', '"+liczba_serii+"', '"+ciezar+"' )";
+   connection.query(sql, function (err, res, fields)
+   {
+       if(!err)
+       {
+           response.redirect("CreatePlan.html")
+       }
+
+   })
+
+});
 
 app.post('/signup', function (request, response) {
 
