@@ -1,9 +1,10 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang = "pl">
 <head>
     <meta charset="utf-8">
-    <title>GymHub</title>
+    <title>GymHub &mdash; Your place to change your body!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
 
     <link rel="stylesheet" href="stylesheets/animate.css">
@@ -16,12 +17,9 @@
 
     <script src="javascripts/modernizr-2.6.2.min.js"></script>
     <script src="javascripts/respond.min.js"></script>
-
 </head>
 <body>
-
 <div class="fh5co-loader"></div>
-
 <div id="page">
     <nav class="fh5co-nav" role="navigation">
         <div class="top">
@@ -29,9 +27,6 @@
                 <div class="row">
                     <div class="col-xs-12 text-right">
                         <p class="num">Call: +48 666 666 666</p>
-                        <ul class="fh5co-social">
-                            <li><a href="#"><i class="icon-twitter"></i></a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -40,50 +35,37 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-2">
-                        <!--                        <div id="fh5co-logo"><a href="/home/home">GymHub<span>.</span></a></div>-->
                         <div id="fh5co-logo"><a href="index.html">GymHub<span>.</span></a></div>
-
                     </div>
+                    <div class="col-xs-10 text-right menu-1">
+                        <ul>
+                            <li class="active"><a href="index.html">Home</a></li>
 
+                        </ul>
+                    </div>
                 </div>
 
             </div>
         </div>
     </nav>
 </div>
-
-
-
-        <div class="imgg">
-            <div class="row">
-                <div class="col-md-5 col-md-push-1 animate-box">
-                    <form action="posplans" method="POST">
-                    <button class="none" type="submit">
-                        <img src="images/plans.png" class="imgplan">
-                    </button>
-                    <span class="myplans">My Plans</span>
-                    </form>
-
-
-                </div>
-            </div>
-        </div>
-
-<div class="imgg2">
-    <div class="row">
-        <div class="col-md-5 col-md-push-1 animate-box">
-            <form action="posplans" method="POST">
-                <a class="none" href="createPlan.html">
-                    <img src="images/modify.png" class="imgmodify">
-                </a>
-                <span class="modify">Modify Plan</span>
-            </form>
-
-
-        </div>
+    <div class=" icon-gym">
+        <img src="images/gympng.png" class="gympng">
     </div>
+<div class="serie">
+<div class="col-md-6 animate-box">
+    <h3>Add to plan</h3>
+    <!--                        <div id="divid"> </div>-->
+    <p>1 - klatka</p>
+    <p>2 - biceps</p>
+    <form action="addEx" method="POST" class="row form-group">
+        <input type="text" name="cwiczenie_id" placeholder="Exercise id" class="form-control">
+        <input type="text" name="liczba_serii" placeholder="Liczba serii" class="form-control">
+        <input type="text" name="ciezar" placeholder="Podaj ciezar" class="form-control">
+        <input type="submit"  class="btn btn-primary">
+    </form>
 </div>
-
+</div>
 
 
 
@@ -107,5 +89,8 @@
     <!-- Main -->
     <script src="javascripts/main.js"></script>
 
+
+
 </body>
 </html>
+
