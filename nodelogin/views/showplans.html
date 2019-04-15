@@ -1,10 +1,9 @@
 <!DOCTYPE HTML>
-<html lang = "pl">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <title>GymHub &mdash; Your place to change your body!</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <title>GymHub</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
 
     <link rel="stylesheet" href="stylesheets/animate.css">
@@ -17,9 +16,12 @@
 
     <script src="javascripts/modernizr-2.6.2.min.js"></script>
     <script src="javascripts/respond.min.js"></script>
+
 </head>
 <body>
+
 <div class="fh5co-loader"></div>
+
 <div id="page">
     <nav class="fh5co-nav" role="navigation">
         <div class="top">
@@ -27,6 +29,9 @@
                 <div class="row">
                     <div class="col-xs-12 text-right">
                         <p class="num">Call: +48 666 666 666</p>
+                        <ul class="fh5co-social">
+                            <li><a href="#"><i class="icon-twitter"></i></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -35,52 +40,53 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-2">
+                        <!--                        <div id="fh5co-logo"><a href="/home/home">GymHub<span>.</span></a></div>-->
                         <div id="fh5co-logo"><a href="index.html">GymHub<span>.</span></a></div>
-                    </div>
-                    <div class="col-xs-10 text-right menu-1">
-                        <ul>
-                            <li class="active"><a href="index.html">Home</a></li>
 
-                        </ul>
                     </div>
+
                 </div>
 
             </div>
         </div>
     </nav>
+</div>
 
 
 
-    <div id="fh5co-services" class="fh5co-bg-section">
-        <div class="container">
+        <div class="imgg">
             <div class="row">
-                <div class="col-md-4 text-center animate-box">
-                    <div class="xdjd">
-                        <span><img class="img-responsive" src="images/password.png" alt=""></span>
-                        <h3>Change Password </h3>
-                        <p>Update Your Password</p>
-                        <p><a href="changepass.html" class="btn btn-primary btn-outline btn-sm">Go -> </a></p>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center animate-box">
-                    <div class="xdjd">
-                        <span><img class="img-responsive" src="images/pobrane.png" alt=""></span>
-                        <h3>Change E-mail</h3>
-                        <p>Update Your E-Mail</p>
-                        <p><a href="changemail.html" class="btn btn-primary btn-outline btn-sm">Go -></a></p>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center animate-box">
-                    <div class="xdjd">
-                        <span><img class="img-responsive" src="images/plans.png" alt=""></span>
-                        <h3>My Plans</h3>
-                        <p>Check Yours saved Plans</p>
-                        <p><a href="showplans.html" class="btn btn-primary btn-outline btn-sm">Check -></a></p>
-                    </div>
+                <div class="col-md-5 col-md-push-1 animate-box">
+                    <form action="postplans" method="POST">
+                    <button class="none" type="submit">
+                        <img src="images/plans.png" class="imgplan">
+                    </button>
+                    <span class="myplans">My Plans</span>
+                    </form>
+
+
                 </div>
             </div>
         </div>
+
+<div class="imgg2">
+    <div class="row">
+        <div class="col-md-5 col-md-push-1 animate-box">
+            <form action="posplans" method="POST">
+                <a class="none" href="createPlan.html">
+                    <img src="images/modify.png" class="imgmodify">
+                </a>
+                <span class="modify">Modify Plan</span>
+            </form>
+
+
+        </div>
     </div>
+</div>
+
+
+
+
 
     <script src="javascripts/jquery.min.js"></script>
     <!-- jQuery Easing -->
@@ -101,8 +107,5 @@
     <!-- Main -->
     <script src="javascripts/main.js"></script>
 
-
-
 </body>
 </html>
-
