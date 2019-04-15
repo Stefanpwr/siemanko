@@ -9,9 +9,12 @@
     "body-parser": "^1.16.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+    "ejs": "^2.6.1",
     "express": "~4.16.0",
+    "express-dom": "^5.12.10",
     "express-session": "^1.15.6",
     "http-errors": "~1.6.2",
+    "jsdom": "latest",
     "morgan": "~1.9.0",
     "mysql": "^2.13.0",
     "pug": "2.0.0-beta11"

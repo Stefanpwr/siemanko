@@ -1,0 +1,31 @@
+Jak odpalić to magiczne cudo.
+
+1 sprawa- sa jeszcze problemy z cssem więc żeby się nie babrać w tym póki co zrobiona została sztuczka
+Zeby ustawic pod siebie musisz:
+1. Wejść w plik login.js
+
+W linijkach 25 +
+zmienić :
+
+app.use(express.static('C:/Users/Shanboos/PhpstormProjects//LastChance/public'));
+
+app.get('/', function(request, response) {
+    response.sendFile('/index.html', { root : 'C:/Users/Shanboos/PhpstormProjects//LastChance/public'});
+});
+Na swoj projekt. Te rooty.
+
+Linijki 60+ w tym samym pliku:
+
+app.get('/signup',function(req,res) {
+    res.sendFile('/signup.html', { root : 'C:/Users/Shanboos/PhpstormProjects//LastChance/public'});
+});
+
+app.get('/account',function(req,res) {
+    res.sendFile('/account.html', { root : 'C:/Users/Shanboos/PhpstormProjects//LastChance/public'});
+});
+To samo zrobić.
+
+Teraz już drogra prosta.
+W terminalu wpisujesz: node login.js
+wchodzisz w przegladarke i wpisujesz localhost:3000
+I DZIALA, chyba.
