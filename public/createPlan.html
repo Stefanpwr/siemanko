@@ -59,7 +59,17 @@
     <p>1 - klatka</p>
     <p>2 - biceps</p>
     <form action="addEx" method="POST" class="row form-group">
-        <input type="text" name="cwiczenie_id" placeholder="Exercise id" class="form-control">
+        <select name="cwiczenie_id" class="form-control">
+            <option value="1">Klatka- Wyciskanie sztangi na ławce płaskiej</option>
+            <option value="2">biceps- wyciskanie hantli</option>
+            <option value="3">Klatka- Wyciskanie sztangi na ławce skośnej</option>
+            <option value="3">biceps- wyciskanie sztangi</option>
+            <option value="4">grzbiet- wyciąg górny</option>
+            <option value="5">barki- wyciskanie hantli na ławce</option>
+            <option value="6">barki- rozpiętki z hantlami</option>
+            <option value="7">triceps- ściąganie wymion</option>
+            <option value="8">brzuch- ściąganie w pionie</option>
+        </select>
         <input type="text" name="liczba_serii" placeholder="Liczba serii" class="form-control">
         <input type="text" name="ciezar" placeholder="Podaj ciezar" class="form-control">
         <input type="submit"  class="btn btn-primary">
