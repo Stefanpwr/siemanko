@@ -1,0 +1,14 @@
+OPIS API
+get ‘/’ – funkcja przekierowuje u¿ytkownika na stronê g³ówn¹
+post ‘/auth’ -funkcja autoryzuj¹ca(loguj¹ca) u¿ytkownika. Pobiera dwie wartoœci body.email oraz has³o u¿ytkownika z body.password, hashuje je(tryb MD5) nastêpnie pobiera has³o z bazy danych sprawdzaj¹c czy istnieje taki adres e-mail. Jeœli has³a zgadzaj¹ siê, przekierowuje u¿ytkownika na stronê „MyAccount” i zapisuje w sesji stan u¿ytkownika(zalogowany). Jeœli podczas logowania napotka b³¹d wyœwietla stosowny komunikat oraz przenosi na stronê logowania(B³êdne has³o lub e-mail nie maj¹cy rekordu w bazie danych).
+Get ‘/home’ – to samo co funkcja ‘/’ z t¹ ró¿nic¹, ¿e jest to strona z zalogowanym u¿ytkownikiem wyœwietlaj¹ca jego login.
+Get ‘/signup’ – przenosi do rejestracji.
+Get ‘/account’ – przenosi do konta u¿ytkownika.
+Get ‘/showplan’ – przenosi do strony z planami.
+Get ‘/createplan’- przenosi do strony z modifkacj¹ planu.
+Get ‘/plans’ – funkcja pobiera z bazy danych plan u¿ytkownika i przesy³a dane do strony tabela.ejs na której s¹ one wyœwietlane. E-mail pobierany jest z sesji.
+Post ‘/postplans’- funkcja odpowiada za utworzenie planu treningowego. Pobiera ona e-mail z sesji po którym znajduje rekord z bazie danych klientów. Nastêpnie jeœli plan ju¿ istnieje wyœwietla b³¹d. Funkcja ³¹czy tabele plan_treningowy z tabel¹ plan_treningowy_listacwiczen dziêki czemu æwiczenia znajduj¹ siê w innej tabeli ni¿ plany co pozwala na zwiêkszon¹ przejrzystoœæ bazy danych.
+Post ‘/addExe’- funckja dodaje æwiczenie do tabeli plantreningowy_listacwiczen. Pobiera on ze strony nastêpuj¹ce argumenty : NazwaCwiczenia – z listy wybieralnej (po której szukane jest id w bazie danych) liczbe serii – body.liczbaserii oraz ciezar z body.ciezar. Nastêpnie sprawdzane jest, czy plan treningowy zosta³ utworzony dla danego u¿ytkownika, jeœli nie wyœwietla error, jeœli tak przechodzi do nastêpnego etapu. Umieszcza w tabeli plantreningowy_listacwiczen IdCwiczenia, LiczbaSeri oraz Ciezar, automatycznie dodaj¹c odnoœnik do IdPlanuTreningowego który znajduje siê w innej tabeli.
+Post ‘/signup’- funckja pobiera kilka argumentów ze strony: Imie, Nazwisko, Miasto, Email, Has³o, DataUrodznia oraz Wage. Has³o hashuje metod¹ MD5. Nastêpnie, jeœli taki u¿ytkownik(email) nie istnieje dodaje go do bazy.
+Post ‘/changePas’- funkcja zmienia emial u¿ytkownika, pobiera jego aktualny e-mail z sesji, has³o oraz jego powtórzenie(has³a musz¹ siê zgadzaæ) nastêpnie UPDATUJE has³o w bazie.
+Post ‘/changeMail’- funckja zmienia has³o u¿ytkownika. Pobiera 3 argumenty ze strony. Aktualne Has³o, nowe has³o oraz powtórzenie has³a. Jeœli aktualne has³o siê zgadza, sprawdza czy dwa pozosta³e has³a pasuj¹ do siebie. Jeœli tak to UPDATUJE has³o w bazie, jeœli nie wyœwietla stosowny error.
