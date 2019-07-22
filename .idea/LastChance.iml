@@ -8,5 +8,7 @@
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="angular" level="application" />
     <orderEntry type="library" name="@types/express" level="application" />
+    <orderEntry type="library" name="@types/chart.js" level="application" />
+    <orderEntry type="library" name="@types/qunit" level="application" />
   </component>
 </module>

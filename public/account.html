@@ -35,11 +35,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-2">
-                        <div id="fh5co-logo"><a href="index.html">GymHub<span>.</span></a></div>
+                        <div id="fh5co-logo"><a href>GymHub<span>.</span></a></div>
                     </div>
                     <div class="col-xs-10 text-right menu-1">
                         <ul>
-                            <li class="active"><a href="index.html">Home</a></li>
+                           <form method="GET" action="logout"><button class="logoutt" type="submit"><li class="active"><a href="index.html">Log out</a></li></button> </form>
 
                         </ul>
                     </div>
@@ -75,7 +75,29 @@
                         <span><img class="img-responsive" src="images/plans.png" alt=""></span>
                         <h3>My Plans</h3>
                         <p>Check Yours saved Plans</p>
-                        <p><a href="showplans.html" class="btn btn-primary btn-outline btn-sm">Check -></a></p>
+                        <p><a href="showplans.html" class="btn btn-primary btn-outline btn-sm">Go -></a></p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center animate-box">
+                    <div class="repair">
+                    <div class="xdjd">
+                        <span><img class="img-responsive" src="images/cahrt.png" alt=""></span>
+                        <h3>Check your progress!</h3>
+                        <p>Look at some charts.</p>
+                        <form action="/getWeightChar" method="POST">
+                       <p><button class="logoutt" type="submit"><a class="btn btn-primary btn-outline btn-sm">Go -></a></button></p>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center animate-box">
+                    <div class="repair2">
+                        <div class="xdjd">
+                            <span><img class="img-responsive" src="images/cahrt.png" alt=""></span>
+                            <h3>Change your Weight!</h3>
+                            <p>Dont stay in one place</p>
+                            <p><a href="weight.html" class="btn btn-primary btn-outline btn-sm">Go -></a></p>
+                        </div>
                     </div>
                 </div>
             </div>

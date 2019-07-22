@@ -13,12 +13,16 @@
     <link rel="stylesheet" href="stylesheets/owl.carousel.min.css">
     <link rel="stylesheet" href="stylesheets/owl.theme.default.min.css">
     <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="stylesheet" href="stylesheets/util.css">
 
     <script src="javascripts/modernizr-2.6.2.min.js"></script>
     <script src="javascripts/respond.min.js"></script>
 
+
 </head>
 <body>
+
 
 <div class="fh5co-loader"></div>
 
@@ -36,13 +40,18 @@
                 </div>
             </div>
         </div>
+        <div class="col-xs-10 text-right menu-1">
+            <ul>
+                <li class="active"><a href="account.html">Back</a></li>
+
+            </ul>
+        </div>
         <div class="top-menu">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-2">
                         <!--                        <div id="fh5co-logo"><a href="/home/home">GymHub<span>.</span></a></div>-->
-                        <div id="fh5co-logo"><a href="index.html">GymHub<span>.</span></a></div>
-
+                        <div id="fh5co-logo"><a>GymHub<span>.</span></a></div>
                     </div>
 
                 </div>
@@ -52,18 +61,57 @@
     </nav>
 </div>
 
-<div>
-    <% if(data.length){
-        for(var i = 0;i < data.length;i++) { %>
-    <span class = "dane">Id Cwiczenia : <%=data[i].IdCwiczenia%></span>
-    <span class = "dane">Liczba seri : <%=data[i].Liczba_serii%></span>
-    <span class = "dane">Ciezar : <%=data[i].Ciezar%></span>
-    <br>
-    <%}}else{%>
-    <%}%>
+
+<div class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100 ver1 m-b-110">
+                <div class="table100-head">
+                    <table>
+                        <thead>
+                        <tr class="row100 head">
+                            <th class="cell100 column1">Nazwa Cwiczenia: </th>
+                            <th class="cell100 column2">Liczba serii: </th>
+                            <th class="cell100 column3" align="left">Ciezar: </th>
+                            <th class="celll00 column3">kalorie w serii: </th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <%var kalorie = data2%>
+                <%console.log(kalorie)%>
+
+                <div class="table100-body js-pscroll">
+                    <table>
+                        <tbody>
+
+                        <% if(data.length){
+                        for(var i = 0;i < data.length;i++) { %>
+                        <tr class="row100 body">
+                            <td class="cell100 column1" align="left"><%=data[i].opis%></td>
+                            <td class="cell100 column2"align="center"><%=data[i].Liczba_serii%></td>
+                            <td class="cell100 column3"align="center"><%=data[i].Ciezar%></td>
+                            <td class="cell100 column3"align="center"><%=data[i].l_kalorii_seria%></td>
+                            <td class="cell100 column4" align="right"><form method="GET" action="/delete<%=data[i].IdCwiczenia%>"><input type="submit" value ="USUN"></form></td>
+
+                        </tr>
+
+                        <%}}
+                        else{%>
+                        <%}%>
+                        <td class="cell100 column1"align="left">suma kalori: <%=kalorie%></td>
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
-
-
 
 
 
